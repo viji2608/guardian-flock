@@ -15,6 +15,10 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        cyber: "bg-gradient-cyber text-white hover:scale-105 hover:shadow-lg hover:shadow-cyber-blue/25 transition-all duration-300",
+        security: "bg-gradient-security text-white hover:scale-105 hover:shadow-lg hover:shadow-cyber-purple/25 transition-all duration-300",
+        matrix: "bg-cyber-green text-cyber-darker hover:bg-cyber-green/90 hover:shadow-lg hover:shadow-cyber-green/25 transition-all duration-300",
+        neural: "bg-cyber-dark border border-cyber-blue text-cyber-blue hover:bg-cyber-blue hover:text-cyber-dark transition-all duration-300",
       },
       size: {
         default: "h-10 px-4 py-2",

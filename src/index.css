@@ -8,35 +8,56 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Cybersecurity Dark Theme */
+    --background: 220 27% 4%;
+    --foreground: 210 20% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 220 27% 6%;
+    --card-foreground: 210 20% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 220 27% 6%;
+    --popover-foreground: 210 20% 98%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 195 100% 50%;
+    --primary-foreground: 220 27% 4%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 220 27% 12%;
+    --secondary-foreground: 210 20% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 27% 8%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 142 76% 36%;
+    --accent-foreground: 210 20% 98%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 20% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 220 27% 12%;
+    --input: 220 27% 12%;
+    --ring: 195 100% 50%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Custom Cybersecurity Colors */
+    --cyber-blue: 195 100% 50%;
+    --cyber-teal: 180 100% 50%;
+    --cyber-green: 142 76% 36%;
+    --cyber-purple: 260 100% 80%;
+    --cyber-dark: 220 27% 2%;
+    --cyber-darker: 220 50% 1%;
+
+    /* Gradients */
+    --gradient-cyber: linear-gradient(135deg, hsl(var(--cyber-blue)), hsl(var(--cyber-teal)));
+    --gradient-security: linear-gradient(135deg, hsl(var(--cyber-purple)), hsl(var(--cyber-blue)));
+    --gradient-matrix: linear-gradient(180deg, transparent, hsl(var(--cyber-green) / 0.1));
+    
+    /* Glows */
+    --glow-cyber: 0 0 20px hsl(var(--cyber-blue) / 0.5);
+    --glow-accent: 0 0 30px hsl(var(--accent) / 0.3);
+
+    /* Animations */
+    --transition-cyber: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 98%;
 
@@ -101,5 +122,64 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  /* Cybersecurity specific utilities */
+  .bg-gradient-cyber {
+    background: var(--gradient-cyber);
+  }
+  
+  .bg-gradient-security {
+    background: var(--gradient-security);
+  }
+  
+  .bg-gradient-matrix {
+    background: var(--gradient-matrix);
+  }
+  
+  .glow-cyber {
+    box-shadow: var(--glow-cyber);
+  }
+  
+  .glow-accent {
+    box-shadow: var(--glow-accent);
+  }
+  
+  .transition-cyber {
+    transition: var(--transition-cyber);
+  }
+
+  /* Matrix-style animation */
+  @keyframes matrix-rain {
+    0% { transform: translateY(-100vh); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(100vh); opacity: 0; }
+  }
+  
+  .matrix-rain {
+    animation: matrix-rain 3s linear infinite;
+  }
+  
+  /* Pulse glow animation */
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 5px hsl(var(--cyber-blue) / 0.5); }
+    50% { box-shadow: 0 0 20px hsl(var(--cyber-blue) / 0.8), 0 0 30px hsl(var(--cyber-blue) / 0.6); }
+  }
+  
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  /* Floating animation */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  .float {
+    animation: float 3s ease-in-out infinite;
   }
 }
